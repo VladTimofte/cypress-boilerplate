@@ -1,0 +1,42 @@
+<div class="expense-tracker">
+    <h2>Expense Tracker for Travel</h2>
+  
+    <div class="add-expense">
+      <input
+        type="text"
+        placeholder="Expense name"
+        [(ngModel)]="newExpense.name"
+        required
+      />
+      <input
+        type="number"
+        placeholder="Amount"
+        [(ngModel)]="newExpense.amount"
+        required
+      />
+      <select [(ngModel)]="newExpense.category" required>
+        <option value="" disabled selected>Select category</option>
+        <option value="Food">Food</option>
+        <option value="Transport">Transport</option>
+        <option value="Accommodation">Accommodation</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="Others">Others</option>
+      </select>
+      <button (click)="addExpense()">Add Expense</button>
+    </div>
+  
+    <div class="expense-list" *ngIf="expenses.length > 0">
+      <h3>Expenses List</h3>
+      <ul>
+        <li *ngFor="let expense of expenses; let i = index">
+          <span>{{ expense.name }} - {{ expense.category }}: {{ expense.amount | number:'1.2-2' }} RON</span>
+          <button (click)="deleteExpense(i)">Delete</button>
+        </li>
+      </ul>
+    </div>
+  
+    <div *ngIf="expenses.length === 0" class="no-expense">No expenses added yet.</div>
+    <br/>
+    <div class="total">Total Expense: {{ totalExpense | number:'1.2-2' }} RON</div>
+  </div>
+  

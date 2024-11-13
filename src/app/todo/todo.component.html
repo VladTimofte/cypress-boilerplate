@@ -1,0 +1,20 @@
+<div class="todo-container">
+    <h1>Todo List</h1>
+  
+    <div class="input-section">
+      <input [(ngModel)]="newTask" placeholder="Adaugă o sarcină nouă" />
+      <button class="add-task" (click)="addTask()">Adaugă</button>
+      <button class="delete-all" (click)="deleteAllTasks()">Șterge Tot</button>
+    </div>
+  <br><br><br>
+    <ul>
+      <li *ngFor="let todo of todos">
+        <div class="wrapper-li">
+            <input type="checkbox" [(ngModel)]="todo.done" />
+            <span [ngClass]="{ done: todo.done }">{{ todo.task }}</span>
+        </div>
+        <button class="remove-task" (click)="removeTask(todo.id)">Șterge</button>
+      </li>
+    </ul>
+  </div>
+  

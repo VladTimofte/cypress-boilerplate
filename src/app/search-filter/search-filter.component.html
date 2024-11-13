@@ -1,0 +1,50 @@
+<div class="filter-container">
+    <h2>Search & Filter Items</h2>
+  
+    <div class="filter-options">
+      <input
+        type="text"
+        placeholder="Search by name..."
+        [(ngModel)]="searchText"
+      />
+  
+      <select [(ngModel)]="selectedCategory">
+        <option *ngFor="let category of categories" [value]="category">
+          {{ category }}
+        </option>
+      </select>
+  
+      <div class="price-range">
+        <label>
+          Min Price:
+          <input
+            type="number"
+            [(ngModel)]="priceRange.min"
+          />
+        </label>
+        <label>
+          Max Price:
+          <input
+            type="number"
+            [(ngModel)]="priceRange.max"
+          />
+        </label>
+      </div>
+  
+      <button (click)="applyFilters()">Search</button>
+    </div>
+  
+    <div class="results">
+      <h3>Results:</h3>
+      <div *ngIf="filteredItems.length === 0">No items match your criteria.</div>
+  
+      <div class="grid-container" *ngIf="filteredItems.length > 0">
+        <div class="card" *ngFor="let item of filteredItems">
+          <h4>{{ item.name }}</h4>
+          <p>Category: {{ item.category }}</p>
+          <p>Price: {{ item.price | currency:'USD' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,162 @@
+/* todo.component.css */
+
+/* Centrare generală */
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    background-color: #eafaf1; /* Fundal deschis verde pal */
+  }
+  
+  /* Container principal */
+  .todo-container {
+    background: white;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Spațiu între secțiuni */
+  }
+  
+  /* Secțiunea pentru adăugarea task-urilor */
+  .input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  /* Titlul aplicației */
+  h1 {
+    font-size: 40px;
+    margin: 0;
+    color: #2e8b57; /* Verde închis */
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Input pentru adăugarea task-urilor */
+  input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    font-size: 18px;
+    border: 2px solid #2e8b57;
+    border-radius: 12px;
+    margin: 0;
+    transition: border-color 0.3s;
+  }
+  
+  input:focus {
+    border-color: #1d6f43; /* Verde mai închis */
+    outline: none;
+  }
+  
+  /* Buton pentru adăugarea task-urilor */
+  button.add-task, button.delete-all {
+    background-color: #2e8b57;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+  }
+
+  button.delete-all {
+    background-color: #ff4d4d;
+  }
+  
+  button.add-task:hover {
+    background-color: #064121; /* Verde mai închis */
+  }
+
+  button.delete-all:hover {
+    background-color: #7e0000; /* Verde mai închis */
+  }
+  
+  /* Lista de sarcini */
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Elementele din listă */
+  li {
+    background: #cacaca;
+    padding: 6px;
+    margin-bottom: 8px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    animation: slideIn 0.5s ease-out;
+  }
+  
+  /* Stilizare pentru textul task-urilor */
+  li span {
+    font-size: 20px;
+    color: #333;
+    transition: color 0.3s, text-decoration 0.3s;
+  }
+  
+  /* Task completat */
+  li .done {
+    color: #686868;
+    text-decoration: line-through;
+  }
+
+  .wrapper-li {
+    display: flex;
+    gap: 20px;
+  }
+  
+  /* Checkbox */
+  input[type="checkbox"] {
+    cursor: pointer;
+    width: auto;
+    margin-left: 10px;
+  }
+  
+  /* Buton pentru ștergerea task-ului */
+  button.remove-task {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  button.remove-task:hover {
+    background-color: #ff0000;
+  }
+  
+  /* Animații */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(10px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  

@@ -1,0 +1,31 @@
+<div class="product-list-container">
+    <h1>Lista produse</h1>
+    <ul>
+      <li *ngFor="let product of products" class="product-item">
+        <div class="product-info">
+          <h2>{{ product.name }}</h2>
+          <p>{{ product.price.toFixed(2) }} RON</p>
+        </div>
+        <button (click)="addToCart(product.id)">Adauga in cos</button>
+      </li>
+    </ul>
+  
+    <!-- Cart Section -->
+    <div class="cart-container">
+      <h2>Cos cumparaturi</h2>
+      <ul>
+        <li *ngFor="let item of cart.values()" class="cart-item">
+          <div class="cart-info">
+            <h3>{{ item.name }}</h3>
+            <p>Cantitate: {{ item.quantity }}</p>
+            <p>Pret: {{ (item.price * item.quantity).toFixed(2) }} RON</p>
+          </div>
+        </li>
+      </ul>
+      <div class="cart-total">
+        <h3>Pret total: {{ getTotalPrice().toFixed(2) }} RON</h3>
+      </div>
+      <button class="clear-cart" (click)="clearCart()">Sterge tot cosul</button>
+    </div>
+  </div>
+  
