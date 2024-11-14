@@ -1,0 +1,62 @@
+.trivia-container {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+  }
+  
+  h1 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .question {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  button {
+    padding: 10px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  button.correct {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  button.wrong {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .next-button {
+    margin-top: 20px;
+  }
+  
+  h2 {
+    color: #4caf50;
+    font-size: 1.5em;
+  }
+  

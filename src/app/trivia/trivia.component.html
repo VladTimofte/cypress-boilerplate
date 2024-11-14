@@ -1,0 +1,28 @@
+<div class="trivia-container">
+    <h1>Trivia Quiz</h1>
+    
+    <div *ngIf="currentQuestion">
+      <p class="question">{{ currentQuestion.question }}</p>
+      <div class="options">
+        <button
+          *ngFor="let option of currentQuestion.options"
+          (click)="selectAnswer(option)"
+          [class.correct]="selectedAnswer === option && option === currentQuestion.answer"
+          [class.wrong]="selectedAnswer === option && option !== currentQuestion.answer"
+          [disabled]="selectedAnswer">
+          {{ option }}
+        </button>
+      </div>
+  
+      <div *ngIf="selectedAnswer" class="next-button">
+        <button (click)="nextQuestion()">Next Question</button>
+      </div>
+    </div>
+  
+    <div *ngIf="!currentQuestion">
+      <h2>Quiz Completed!</h2>
+      <p>Your Score: {{ score }} / {{ questions.length }}</p>
+      <button (click)="restartQuiz()">Restart Quiz</button>
+    </div>
+  </div>
+  
